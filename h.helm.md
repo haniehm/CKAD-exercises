@@ -88,6 +88,17 @@ helm repo index [DIR] [flags]
 </p>
 </details>
 
+### Search for a specific Helm chart on Artifact hub
+```bash
+helm search hub wordpress
+```
+
+### Search for a specific Helm chart on added repos
+
+```bash
+helm search repo wordpress
+```
+
 ### Download a Helm chart from a repository 
 
 <details><summary>show</summary>
