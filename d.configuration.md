@@ -785,6 +785,29 @@ k exec -it $ns consumer -- /bin/sh
 </p>
 </details>
 
+
+
+```bash
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: consumer
+  name: consumer
+spec:
+  containers:
+  - image: nginx
+    name: pod
+    resources: {}
+    envFrom:
+    - secretRef:
+        name: ext-service-secret
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
+```
+
 ### Create a Secret named 'my-secret' of type 'kubernetes.io/ssh-auth' in the namespace 'secret-ops'. Define a single key named 'ssh-privatekey', and point it to the file 'id_rsa' in this directory.
 <details><summary>show</summary>
 <p>
