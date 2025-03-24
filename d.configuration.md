@@ -778,6 +778,28 @@ spec:
 status: {}
 ```
 
+```YAML
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: consumer
+  name: consumer
+  namespace: secret-ops
+spec:
+  containers:
+  - image: nginx
+    name: pod
+    resources: {}
+    envFrom:
+    - secretRef:
+        name: ext-service-secret
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+```
+
 ```bash
 k exec -it $ns consumer -- /bin/sh
 #env
